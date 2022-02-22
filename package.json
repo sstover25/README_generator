@@ -1,5 +1,5 @@
 {
-  "name": "static-site",
+  "name": "readme-generator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^6.3.1"
-  }
+    "inquirer": "^8.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sstover25/README_generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sstover25/README_generator/issues"
+  },
+  "homepage": "https://github.com/sstover25/README_generator#readme"
 }
