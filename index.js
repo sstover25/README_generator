@@ -100,12 +100,17 @@ const questions = [
     message:
       "What is the email that others can use to reach out to you with questions?",
   },
+  {
+    type: "input",
+    name: "github",
+    message: "What is your github username?",
+  },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(data) {
   return new Promise((resolve, reject) => {
-    fs.writeFile(`./dist/${fileName}_README.md`, data, (err) => {
+    fs.writeFile("./dist/README.md", data, (err) => {
       if (err) {
         reject(err);
         return;
@@ -131,7 +136,7 @@ init()
     return generateMarkdown(init);
   })
   .then((answers) => {
-    return writeToFile(answers.title, answers);
+    return writeToFile(answers);
   })
   .then((writeToFile) => {
     console.log(writeToFile);
