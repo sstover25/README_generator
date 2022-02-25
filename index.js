@@ -130,6 +130,12 @@ init()
     console.log(init);
     return generateMarkdown(init);
   })
+  .then((answers) => {
+    return writeToFile(answers.title, answers);
+  })
+  .then((writeToFile) => {
+    console.log(writeToFile);
+  })
   .catch((err) => {
     console.log(err);
   });
