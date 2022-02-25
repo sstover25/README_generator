@@ -92,6 +92,12 @@ const questions = [
       }
     },
   },
+  {
+    type: "input",
+    name: "email",
+    message:
+      "What is the email that others can use to reach out to you with questions?",
+  },
 ];
 
 // TODO: Create a function to write README file
