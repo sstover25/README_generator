@@ -1,4 +1,3 @@
-const fs = require("fs");
 const inquirer = require("inquirer");
 // TODO: Include packages needed for this application
 
@@ -6,7 +5,7 @@ const inquirer = require("inquirer");
 const questions = [
   {
     type: "input",
-    name: "project-title",
+    name: "title",
     message: "What is the name of your project? (Required)",
     validate: (projectNameInput) => {
       if (projectNameInput) {
@@ -61,7 +60,7 @@ const questions = [
     type: "list",
     name: "license",
     message: "Please select the license for your project.",
-    choices: [],
+    choices: [1, 2, 3],
     default: 0,
   },
   {
@@ -99,7 +98,9 @@ const questions = [
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  return inquirer.prompt(questions);
+}
 
 // Function call to initialize app
 init();
