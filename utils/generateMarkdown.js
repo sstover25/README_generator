@@ -1,5 +1,34 @@
 const fs = require("fs");
 
+// information for below licenses came from https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
+const licenseArr = [
+  {
+    name: "MIT License",
+    img: "License-MIT-yellow.svg",
+    url: "MIT",
+  },
+  {
+    name: "Apache License 2.0",
+    img: "License-Apache_2.0-blue.svg",
+    url: "Apache-2.0",
+  },
+  {
+    name: "GNU General Public License (GPL) v3",
+    img: "License-GPLv3-blue.svg",
+    url: "gpl-3.0",
+  },
+  {
+    name: "Berkeley Software Distribution (BSD) 3-Clause License",
+    img: "License-BSD_3--Clause-blue.svg",
+    url: "BSD-3-Clause",
+  },
+  {
+    name: "Internet Systems Consortium License (ISC)",
+    img: "License-ISC-blue.svg",
+    url: "ISC",
+  },
+];
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -12,16 +41,27 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license) {
+    `- [License](#license) <br />`;
   }
   return "";
 }
-
+//${renderLicenseBadge(licenseArr[i])}
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license) {
+    for (i = 0; i < licenseArr.length; i++) {
+      let licenseName = licenseArr[i].name;
+      if (license === licenseName) {
+        return `## License
+
+      ${renderLicenseBadge(licenseArr[i])}
+      
+        `;
+      }
+    }
+    return "";
   }
-  return "";
 }
 
 // TODO: Create a function to generate markdown for README
@@ -36,7 +76,7 @@ function generateMarkdown(data) {
   ## Table of Contents
   - [Installation](#installation) <br />
   - [Usage](#usage) <br />
-  - [License](#license) <br />
+  ${renderLicenseLink(data.license)}
   - [Contributing](#contributing) <br />
   - [Tests](#tests) <br />
   - [Questions](#questions)
@@ -49,11 +89,7 @@ function generateMarkdown(data) {
   ## Usage
 
   ${data.usage}
-
-  ## License
-
-  ${data.license}
-
+  ${renderLicenseSection(data.license)}
   ## Contributing
 
   ${data.contribution}
@@ -64,7 +100,9 @@ function generateMarkdown(data) {
 
   ## Questions
 
-  If any additional questions arise, you can find me at [GitHub](https://github.com/${data.github}) or email me at ${data.email}.
+  If any additional questions arise, you can find me at [GitHub](https://github.com/${
+    data.github
+  }) or email me at ${data.email}.
 
 `;
 }

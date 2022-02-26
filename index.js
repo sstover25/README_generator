@@ -59,11 +59,29 @@ const questions = [
     },
   },
   {
+    type: "confirm",
+    name: "confirmLicense",
+    message: "Would you like to select a license for this project?",
+    default: false,
+  },
+  {
     type: "list",
     name: "license",
     message: "Please select the license for your project.",
-    choices: [1, 2, 3],
-    default: 0,
+    choices: [
+      "MIT License",
+      "Apache License 2.0",
+      "GNU General Public License (GPL) v3",
+      "Berkeley Software Distribution (BSD) 3-Clause License",
+      "Internet Systems Consortium License (ISC)",
+    ],
+    when: ({ confirmLicense }) => {
+      if (confirmLicense) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   {
     type: "input",
