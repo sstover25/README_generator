@@ -33,6 +33,7 @@ const licenseArr = [
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license) {
+    return `[![${license.name}](https://img.shields.io/badge/${license.img})](https://opensource.org/licenses/${license.url})`;
   }
   return "";
 }
@@ -41,7 +42,7 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license) {
-    `- [License](#license) <br />`;
+    return `- [License](#license) <br />`;
   }
   return "";
 }
@@ -56,7 +57,6 @@ function renderLicenseSection(license) {
         return `## License
 
       ${renderLicenseBadge(licenseArr[i])}
-      
         `;
       }
     }
@@ -71,7 +71,7 @@ function generateMarkdown(data) {
 
   ## Description
 
-  ${data.description}
+        ${data.description}
 
   ## Table of Contents
   - [Installation](#installation) <br />
@@ -84,19 +84,21 @@ function generateMarkdown(data) {
 
   ## Installation
 
-  ${data.installation}
+        ${data.installation}
 
   ## Usage
 
-  ${data.usage}
+        ${data.usage}
+
   ${renderLicenseSection(data.license)}
+
   ## Contributing
 
-  ${data.contribution}
+        ${data.contribution}
 
   ## Tests
 
-  ${data.test}
+        ${data.test}
 
   ## Questions
 
