@@ -77,7 +77,7 @@ To use this applicaiton, you must have Node.js installed as well as Inquirer ins
 ## Credits
 
 ```
-Coding assistance from KU bootcamp modules, https://developer.mozilla.org/, <br />
+Coding assistance from KU bootcamp modules, https://developer.mozilla.org/,
 w3Schools documentation, Inquirer documentation, and Stack Overflow.
 
 Information about licenses came from https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
