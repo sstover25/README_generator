@@ -150,14 +150,13 @@ function init() {
 // Function call to initialize app
 init()
   .then((init) => {
-    console.log(init);
     return generateMarkdown(init);
   })
   .then((answers) => {
     return writeToFile(answers);
   })
   .then((writeToFile) => {
-    console.log(writeToFile);
+    console.log(writeToFile.message);
   })
   .catch((err) => {
     console.log(err);
